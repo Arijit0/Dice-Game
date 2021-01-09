@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        
+        <!-- MetaTags -->
+        <meta charset="UTF-8">
+
+        <!-- Main styling file -->
+        <!-- <link type="text/css" rel="stylesheet" href="style.css"> -->
+        
+        <!-- Title of the page -->
+        <title>Dice Game</title>
+
+    </head>
+
+    <body>
+
+        <!-- Player 0 panel -->
+        <div class="wrapper clearfix">
+            <div [ngClass]="[activePlayer == 0 ? 'active' : '', 'player-0-panel', playerOneName == 'Winner!'? 'winner' : '']">
+                <div class="player-name" id="name-0">{{playerOneName}}</div>
+                <div class="player-score" id="score-0">{{PlayerOneScore}}</div>
+                <div class="player-current-box">
+                    <div class="player-current-label">Current</div>
+                    <div class="player-current-score" id="current-0">{{activePlayer == 0 ? roundScore : 0}}</div>
+                </div>
+            </div>
+            <!-- End of player 0 panel -->
+
+            <!-- Player 1 panel -->
+            <div [ngClass]="[activePlayer == 1 ? 'active' : '', 'player-1-panel', playerTwoName == 'Winner!'? 'winner' : '']">
+                <div class="player-name" id="name-1">{{playerTwoName}}</div>
+                <div class="player-score" id="score-1">{{playerTwoScore}}</div>
+                <div class="player-current-box">
+                    <div class="player-current-label">Current</div>
+                    <div class="player-current-score" id="current-1">{{activePlayer == 1 ? roundScore : 0}}</div>
+                </div>
+            </div>
+            <!-- End of player 1 panel -->
+            
+            <!-- Buttons -->
+            <button class="btn-new" (click)="init()"><i class="ion-ios-plus-outline"></i>New game</button>
+            <button class="btn-roll" (click)="rollDice()"><i class="ion-ios-loop"></i>Roll dice</button>
+            <button class="btn-hold" (click)="diceHold()"><i class="ion-ios-download-outline"></i>Hold</button>
+
+            
+            <!-- Dice images -->
+            <img *ngIf="diceHide" src="../assets/dice-{{dice1}}.png" alt="Dice" class="dice" id="dice1">
+            <img *ngIf="diceHide" src="../assets/dice-{{dice2}}.png" alt="Dice" class="dice" id="dice2">
+        </div>
+        
+        
+
+    </body>
+</html>
